@@ -1,0 +1,46 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header">
+  <div>Material Theme</div>
+  <span class="nav-tool-items">
+    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+  </span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav
+    #sidenav
+    class="app-sidenav-nav mat-elevation-z6"
+    [mode]="isBiggerScreen() ? 'over' : 'side'"
+    [(opened)]="opened"
+    [fixedInViewport]="true"
+    [fixedTopGap]
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </a>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>library_books</mat-icon>Formation
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLinkActive="active"
+          ><mat-icon>view_list</mat-icon>Liste</a
+        >
+        <a mat-list-item routerLinkActive="active"
+          ><mat-icon>add</mat-icon>Ajouter</a
+        >
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
